@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/passwords")
+@RequestMapping("/api/v1/password")
 @RequiredArgsConstructor
 public class PasswordController {
     
@@ -22,8 +22,6 @@ public class PasswordController {
             @Valid @RequestBody PasswordValidationRequest request) {
 
         try {
-            log.info("Received password validation request");
-
             PasswordValidationResponse response = passwordValidatorService
                     .validatePassword(request.getPassword());
 
