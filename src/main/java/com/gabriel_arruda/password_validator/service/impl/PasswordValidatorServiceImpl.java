@@ -20,7 +20,7 @@ public class PasswordValidatorServiceImpl implements PasswordValidatorService {
     public PasswordValidationResponse validatePassword(String password) {
         for (PasswordRule rule : validationRules) {
             if (!rule.validate(password)) {
-                log.info("Password validation failed: {}", rule.getFailureMessage());
+                log.error("Password validation failed: {}", rule.getFailureMessage());
                 return new PasswordValidationResponse(false);
             }
         }

@@ -60,4 +60,18 @@ class PasswordControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.valid").value(false));
     }
+
+    @Test
+    void returns_true_for_valid_password() throws Exception {
+        when(passwordValidatorService.validatePassword(anyString()))
+                .thenReturn(new PasswordValidationResponse(true));
+
+        String body = "{\"password\": \"Abcd@12344\"}";
+
+        mockMvc.perform(post("/api/v1/password/validate")
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(body))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.valid").value(true));
+    }
 }
