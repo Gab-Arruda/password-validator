@@ -11,6 +11,6 @@ public class UppercaseRequiredRule implements PasswordRule {
     
     @Override
     public String getFailureMessage() {
-        return "Password must contain at least one uppercase letter (A-Z).";
+        return "Password must contain at least one uppercase letter (A-Z)";
     }
 }

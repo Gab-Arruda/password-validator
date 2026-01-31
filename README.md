@@ -49,27 +49,6 @@ Este projeto implementa um validador de senhas como um serviço REST simples usa
 Quando `password` for enviado como `null`, optei por retornar `400 Bad Request` em vez de apenas retornar `{"valid": false}`.
 Isso indica ao usuário que o corpo da requisição está incompleto/inválido, em vez de tratá-lo como uma senha inválida.
 
-
-## Testes
-
-Foram adicionados testes unitários e de controller (integração leve). Os testes usam JUnit 5 e Mockito (pelo `spring-boot-starter-test`).
-
-Principais testes implementados:
-
-- `src/test/java/com/gabriel_arruda/password_validator/validator/rules/`
-  - `DigitRequiredRuleTest.java`
-  - `LowercaseRequiredRuleTest.java`
-  - `MinimumLengthRuleTest.java`
-  - `NoRepeatedCharactersRuleTest.java`
-  - `NotEmptyRequiredRuleTest.java`
-  - `NoWhitespaceRuleTest.java`
-  - `SpecialCharacterRequiredRuleTest.java`
-  - `UppercaseRequiredRuleTest.java`
-- `src/test/java/com/gabriel_arruda/password_validator/service/impl/`
-  - `PasswordValidatorServiceImplTest.java`
-- `src/test/java/com/gabriel_arruda/password_validator/controller/`
-  - `PasswordControllerTest.java` (testes standalone com MockMvc; cobre `password: null` -> 400, casos válidos e inválidos)
-
 ### Como rodar o projeto
 
 Pré-requisitos
@@ -81,7 +60,7 @@ Pré-requisitos
 
 No diretório raiz do projeto:
 
-**Usando Maven Wrapper (recomendado - não requer Maven instalado):**
+**Usando Maven Wrapper (não requer Maven instalado pois já vem no projeto):**
 
 Windows:
 ```powershell
@@ -119,7 +98,7 @@ Linux/Mac:
 mvn test
 ```
 
-## Estrutura principal do projeto
+### Estrutura principal do projeto
 
 ```
 password-validator/

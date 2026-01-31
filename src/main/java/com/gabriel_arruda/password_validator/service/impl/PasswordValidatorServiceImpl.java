@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -15,15 +16,22 @@ import java.util.List;
 public class PasswordValidatorServiceImpl implements PasswordValidatorService {
     
     private final List<PasswordRule> validationRules;
-    
+
     @Override
     public PasswordValidationResponse validatePassword(String password) {
+        List<String> errors = new ArrayList<>();
+
         for (PasswordRule rule : validationRules) {
             if (!rule.validate(password)) {
-                log.error("Password validation failed: {}", rule.getFailureMessage());
-                return new PasswordValidationResponse(false);
+                errors.add(rule.getFailureMessage());
             }
         }
-        return new PasswordValidationResponse(true);
+        if (!errors.isEmpty()) {
+            log.info("Password validation failed: {}", String.join(", ", errors));
+        } else {
+            log.info("Password validation succeeded");
+        }
+
+        return new PasswordValidationResponse(errors.isEmpty());
     }
 }

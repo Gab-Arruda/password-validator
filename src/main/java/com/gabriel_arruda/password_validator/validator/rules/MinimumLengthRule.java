@@ -13,6 +13,6 @@ public class MinimumLengthRule implements PasswordRule {
     
     @Override
     public String getFailureMessage() {
-        return "Password must have at least " + MINIMUM_LENGTH + " characters.";
+        return "Password must have at least " + MINIMUM_LENGTH + " characters";
     }
 }

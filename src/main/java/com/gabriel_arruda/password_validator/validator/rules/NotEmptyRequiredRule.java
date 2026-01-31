@@ -9,5 +9,5 @@ public class NotEmptyRequiredRule implements PasswordRule {
     }
 
     @Override
-    public String getFailureMessage() { return "Password must not be empty."; }
+    public String getFailureMessage() { return "Password must not be empty"; }
 }

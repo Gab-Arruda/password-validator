@@ -11,6 +11,6 @@ public class DigitRequiredRule implements PasswordRule {
     
     @Override
     public String getFailureMessage() {
-        return "Password must contain at least one digit (0-9).";
+        return "Password must contain at least one digit (0-9)";
     }
 }

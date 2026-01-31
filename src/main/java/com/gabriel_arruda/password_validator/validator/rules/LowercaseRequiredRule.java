@@ -11,6 +11,6 @@ public class LowercaseRequiredRule implements PasswordRule {
     
     @Override
     public String getFailureMessage() {
-        return "Password must contain at least one lowercase letter (a-z).";
+        return "Password must contain at least one lowercase letter (a-z)";
     }
 }
