@@ -7,16 +7,16 @@ Este projeto implementa um validador de senhas como um serviço REST simples usa
 - Ao menos 1 dígito
 - Ao menos 1 letra minúscula
 - Ao menos 1 letra maiúscula
-- Ao menos 1 caractere especial
-- Considere como especial os seguintes caracteres: !@#$%^&*()-+
+- Ao menos 1 caractere especial: !@#$%^&*()-+
+
 - Não possuir caracteres repetidos dentro do conjunto
 - Não possuir espaços em branco
 
 ### Design pattern utilizado
 
-- Strategy: cada regra de validação (`PasswordRule`) é implementada como uma estratégia (ex.: `DigitRequiredRule`, `LowercaseRequiredRule`, ...).
-  As regras são injetadas como uma lista em `PasswordValidatorServiceImpl` através do `PasswordValidatorConfig`,
-  permitindo adicionar/remover regras sem alterar a lógica de validação central.
+Strategy: cada regra de validação (`PasswordRule`) é implementada como uma strategy (ex.: `DigitRequiredRule`, `LowercaseRequiredRule`, ...).
+As regras são injetadas como uma lista em `PasswordValidatorServiceImpl` através do `PasswordValidatorConfig`,
+permitindo adicionar/remover regras sem alterar a lógica de validação central.
 
 ### Endpoint de validação
 
@@ -37,7 +37,7 @@ Este projeto implementa um validador de senhas como um serviço REST simples usa
 }
 ```
 
-### Comentários
+### Comentários sobre a implementação
 
 - As regras são definidas em `src/main/java/.../validator/rules`.
 - A configuração que monta a lista de regras está em `PasswordValidatorConfig`.
@@ -79,7 +79,7 @@ mvn spring-boot:run
 
 A aplicação vai subir na porta 8080 por padrão.
 
-Executar os testes:
+#### Executar os testes:
 
 **Usando Maven Wrapper:**
 
