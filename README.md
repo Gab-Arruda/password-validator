@@ -20,8 +20,9 @@ permitindo adicionar/remover regras sem alterar a lógica de validação central
 
 ### Endpoint de validação
 
-- POST /api/v1/password/validate
-- Payload de exemplo:
+**POST** `/api/v1/password/validate`
+
+**Payload de exemplo:**
 
 ```json
 {
@@ -29,7 +30,7 @@ permitindo adicionar/remover regras sem alterar a lógica de validação central
 }
 ```
 
-- Resposta de exemplo:
+**Resposta de exemplo:**
 
 ```json
 {
@@ -96,6 +97,15 @@ Linux/Mac:
 **Usando Maven:**
 ```powershell
 mvn test
+```
+
+### Hospedagem
+
+A api está hospedada no **AWS App Runner** utilizando uma imagem presente no **ECR (Elastic Container Registry )**.
+
+**Endpoint na aws:**
+```
+https://bbpe4hagcu.us-east-1.awsapprunner.com/api/v1/password/validate
 ```
 
 ### Estrutura principal do projeto
